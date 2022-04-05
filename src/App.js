@@ -1,65 +1,19 @@
-import { useState, useEffect} from "react";
+
 import './App.css';
-import {db} from "./firebaseConfiguration";
-import { collection, getDocs, addDoc, updateDoc, doc,deleteDoc} from "firebase/firestore";
+
+
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Tracker from "./Pages/Tracker"
 
 function App() {
-  const [newPlant, setNewPlant] = useState("")
-  const [newHealth, setNewHealth] = useState("")
-  const [newWatered, setNewWatered] = useState("")
 
-  const [plants, setPlants] = useState([]);
-  const plantsRef = collection(db, "plants");
-
-//this does the CREATE part, allows user to add plant with name, health, and watered
- const createPlant = async () => {
-   await addDoc(plantsRef, {name: newPlant, health: newHealth, watered: newWatered});
-
-  };
-  //updates health and watered
-  const updatePlant = async (id) => {
-    const plantDoc = doc(db, "plants", id);
-    const newFields = {health: newHealth, watered: newWatered}
-    await updateDoc(plantDoc, newFields)
-
-  }
-  const deletePlant = async (id) => {
-    const plantDoc = doc(db, "plants", id);
-    await deleteDoc(plantDoc);
-
-  }
-  //sets up the link to collection, gets data
-  useEffect(() => {
-    const getPlants = async () => {
-      const data = await getDocs(plantsRef);
-      setPlants(data.docs.map((doc) => ({ ...doc.data(), id: doc.id})));
-    };
-    getPlants();
-  });
   return (
-    <div className="App">
-      <input placeholder="Name..." onChange={(event) =>{setNewPlant(event.target.value)}}/> 
-      <input placeholder="Health..." onChange={(event) =>{setNewHealth(event.target.value)}}/>
-      <input placeholder="Watered..." onChange={(event) =>{setNewWatered(event.target.value)}}/>
-
-      <button onClick={createPlant}> Create Plant</button>
-      {plants.map((plant) => {
-        return(
-          <div> 
-            {" "} 
-            <h1>Name: {plant.name}</h1>
-            <h1>Health: {plant.health}</h1>
-            <h1>Watered: {plant.watered}</h1>
-            <input placeholder= "Health..." onChange={(event) =>{setNewHealth(event.target.value)}}/> 
-            <input placeholder= "Watered..." onChange={(event) =>{setNewWatered(event.target.value)}}/>
-            <button onClick={() => {updatePlant(plant.id, plant.health, plant.watered)}}> Update Health</button>
-            <button onClick={() => {deletePlant(plant.id)}}>Delete Plant</button>
-          </div>
-        )
-      })}
+    <Router>
+      <Routes>
+        <Route path="/" element={<Tracker/>} />
       
-      
-    </div>
+      </Routes>
+    </Router>
   );
 }
 
