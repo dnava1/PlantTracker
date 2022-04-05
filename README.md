@@ -1,6 +1,5 @@
 # Getting Started with Create React App
 
-You can find the latest version of the website here: <br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
