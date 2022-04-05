@@ -39,7 +39,7 @@ function Tracker() {
    });
 
   return (
-    <div>
+    <div className="App">
         <input placeholder="Name..." onChange={(event) =>{setNewPlant(event.target.value)}}/> 
       <input placeholder="Health..." onChange={(event) =>{setNewHealth(event.target.value)}}/>
       <input placeholder="Watered..." onChange={(event) =>{setNewWatered(event.target.value)}}/>
