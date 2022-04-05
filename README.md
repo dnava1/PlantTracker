@@ -2,8 +2,6 @@
 
 You can find the latest version of the website here: <br>
 
-*https://planttracker-8c410.web.app/*
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
