@@ -1,34 +1,23 @@
 .App {
-  
+
   text-align: center;
-  
-  
 }
 
 body{
-  padding:0%;
-  margin: 0%;
+ 
   font-family: Arial, Helvetica, sans-serif;
-}
-
-nav{
-  margin:0;
-  width: 100%;
-  height: 80px;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
+  background-image: url("https://cdn.wallpapersafari.com/88/57/GaNzKq.jpg");
+  background-color: pink;
   color: white;
-  text-decoration: none;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
 }
 
-a {
-  color:white;
-  text-decoration: none;
-  margin: 10px;
-  font-size: 25px;
-}
+
+
+
 
 .SignInPage {
   display: flex;
@@ -45,9 +34,12 @@ input {
   box-sizing: border-box;
 }
 .SignInGoogle{
+  height:100%;
   display: flex;
-  justify-content: center;
-  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+  
 }
 button {
   text-align: center;
@@ -55,4 +47,28 @@ button {
   padding: 15px 25px;
   margin: 8px 0;
   box-sizing: border-box;
+}
+.logOut {
+  display: flex;
+  text-align: center;
+  box-sizing: border-box;
+  top:50%;
+  align-content:flex-start;
+
+  
+  margin: 15px auto;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:x-large;
+  background-color: white;
+  color:black;
+  border-radius: 15px;
+  border-color: lime;
+  padding: 15px 25px;
+  box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+  padding:20px;
+  min-height:20px; 
+  min-width: 100px;
+ 
+  
 }

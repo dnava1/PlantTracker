@@ -17,12 +17,14 @@ function SignIn({ setIsAuth }) {
     };
   return (
     <div className="SignInGoogle">
+       
 
         
         <GoogleButton
         onClick={signInWithGoogle}>
             Sign in with Google
         </GoogleButton>
+        
         </div>
   );
 }
