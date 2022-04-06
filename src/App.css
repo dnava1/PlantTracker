@@ -1,5 +1,7 @@
 .App {
+  
   text-align: center;
+  
 }
 
 body{
@@ -25,4 +27,11 @@ a {
   text-decoration: none;
   margin: 10px;
   font-size: 25px;
+}
+
+.SignInPage {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
 }

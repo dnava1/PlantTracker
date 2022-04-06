@@ -2,6 +2,7 @@ import React from 'react';
 import {auth, provider } from "../firebaseConfiguration";
 import {signInWithPopup} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import GoogleButton from 'react-google-button';
 
 
 function SignIn({ setIsAuth }) {
@@ -11,17 +12,17 @@ function SignIn({ setIsAuth }) {
         signInWithPopup(auth, provider).then((result) =>{
             localStorage.setItem("isAuth", true);
             setIsAuth(true);
-            navigate("/");
+            navigate("/home");
         })
     };
   return (
-    <div className='SignInPage'>
+    <div className="SignInGoogle">
 
-        <p>Sign In With Google to Continue</p>
-        <button className="login-with-google-btn"
+        
+        <GoogleButton
         onClick={signInWithGoogle}>
             Sign in with Google
-        </button>
+        </GoogleButton>
         </div>
   );
 }

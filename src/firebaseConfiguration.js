@@ -5,21 +5,22 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyDqGgjhMD0C2gqDpulb_wgbwzfPB6Kx_L8",
-  
-    authDomain: "planttracker-8c410.firebaseapp.com",
-  
-    projectId: "planttracker-8c410",
-  
-    storageBucket: "planttracker-8c410.appspot.com",
-  
-    messagingSenderId: "820697267907",
-  
-    appId: "1:820697267907:web:47da938d2ca820775fec76",
-  
-    measurementId: "G-W31YFYZNC0"
-  
-  };
+  apiKey: "AIzaSyAtF5YWQ7r12V__DlB2F9Aby5l172ia-AA",
+
+  authDomain: "plant-tracker-37c7e.firebaseapp.com",
+
+  projectId: "plant-tracker-37c7e",
+
+  storageBucket: "plant-tracker-37c7e.appspot.com",
+
+  messagingSenderId: "1066071067684",
+
+  appId: "1:1066071067684:web:95c8968576ef9696c09cb1",
+
+  measurementId: "G-MHNEPEFNB8"
+
+};
+
   
   
   const app = initializeApp(firebaseConfig);

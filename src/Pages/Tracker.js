@@ -2,9 +2,10 @@ import React from 'react'
 import { useState, useEffect} from "react";
 import { db } from "../firebaseConfiguration"
 import { collection, getDocs, addDoc, updateDoc, doc,deleteDoc} from "firebase/firestore";
+import { useNavigate} from 'react-router-dom';
 
 
-function Tracker() {
+function Tracker({ isAuth }) {
   const [newPlant, setNewPlant] = useState("")
   const [newHealth, setNewHealth] = useState("")
   const [newWatered, setNewWatered] = useState("")
@@ -37,6 +38,19 @@ function Tracker() {
      };
      getPlants();
    });
+
+   let navigate = useNavigate();
+
+   useEffect(() => {
+       if (!localStorage.getItem('isAuth')){
+           navigate("/signin");
+       }else if(localStorage.getItem('isAuth')){
+           navigate("/tracker")
+
+       }
+       
+
+   }, [])
 
   return (
     <div className="App">
