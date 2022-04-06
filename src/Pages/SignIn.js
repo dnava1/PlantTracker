@@ -12,7 +12,7 @@ function SignIn({ setIsAuth }) {
         signInWithPopup(auth, provider).then((result) =>{
             localStorage.setItem("isAuth", true);
             setIsAuth(true);
-            navigate("/home");
+            navigate("/tracker");
         })
     };
   return (

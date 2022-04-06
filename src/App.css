@@ -2,6 +2,7 @@
   
   text-align: center;
   
+  
 }
 
 body{
@@ -34,4 +35,24 @@ a {
   justify-content: center;
   text-align: center;
 
+}
+input {
+ 
+  text-align: center;
+
+  padding: 15px 25px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+.SignInGoogle{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+button {
+  text-align: center;
+
+  padding: 15px 25px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }

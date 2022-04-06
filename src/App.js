@@ -6,7 +6,7 @@ import Home from './Pages/Home';
 import { useState } from "react"
 import { signOut } from "firebase/auth"
 import { auth } from "./firebaseConfiguration";
-import Welcome from './Pages/Welcome';
+
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
     signOut(auth).then(() => {
       localStorage.clear();
       setIsAuth(false);
-      window.location.pathname = "/signin";
+      window.location.pathname = "/";
       
     })
   };
@@ -27,33 +27,18 @@ function App() {
 
   return (
     <Router>
-      <nav>
+     
       
-        
-        
-        
-        
-        
-
-        <>
-        <Link to="/tracker"> Tracker</Link>
-        <Link to="/home"> Home</Link>
-        
-        </>
-        
-        
-      </nav>
-      {isAuth ? <Tracker /> :  <SignIn />}
       <div>
-        <h1>hello
-          <button onClick={signUserOut}></button>
+        <h1>
+          
         </h1>
       </div>
       <Routes>
-        <Route path="/" element={<Welcome/>} />
-        <Route path="/home" element={<Home/>} />
+        
+        
 
-        <Route path="/signin" element={<SignIn setIsAuth={setIsAuth}/>} />
+        <Route path="/" element={<SignIn setIsAuth={setIsAuth}/>} />
         <Route path="/tracker" element={<Tracker isAuth={isAuth}/>} />
       
       </Routes>

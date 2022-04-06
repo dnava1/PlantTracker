@@ -3,15 +3,27 @@ import { useState, useEffect} from "react";
 import { db } from "../firebaseConfiguration"
 import { collection, getDocs, addDoc, updateDoc, doc,deleteDoc} from "firebase/firestore";
 import { useNavigate} from 'react-router-dom';
+import { signOut } from "firebase/auth"
+import { auth } from "../firebaseConfiguration";
 
 
-function Tracker({ isAuth }) {
+function Tracker({ }) {
   const [newPlant, setNewPlant] = useState("")
   const [newHealth, setNewHealth] = useState("")
   const [newWatered, setNewWatered] = useState("")
+  const[isAuth, setIsAuth] = useState(false);
 
   const [plants, setPlants] = useState([]);
   const plantsRef = collection(db, "plants");
+
+  const signUserOut = () => {
+    signOut(auth).then(() => {
+      localStorage.clear();
+      setIsAuth(false);
+      window.location.pathname = "/";
+      
+    })
+  };
 
   //this does the CREATE part, allows user to add plant with name, health, and watered
  const createPlant = async () => {
@@ -43,7 +55,7 @@ function Tracker({ isAuth }) {
 
    useEffect(() => {
        if (!localStorage.getItem('isAuth')){
-           navigate("/signin");
+           navigate("/");
        }else if(localStorage.getItem('isAuth')){
            navigate("/tracker")
 
@@ -54,6 +66,7 @@ function Tracker({ isAuth }) {
 
   return (
     <div className="App">
+        <button onClick={signUserOut}></button>
         <input placeholder="Name..." onChange={(event) =>{setNewPlant(event.target.value)}}/> 
       <input placeholder="Health..." onChange={(event) =>{setNewHealth(event.target.value)}}/>
       <input placeholder="Watered..." onChange={(event) =>{setNewWatered(event.target.value)}}/>
@@ -68,7 +81,7 @@ function Tracker({ isAuth }) {
             <h1>Watered: {plant.watered}</h1>
             <input placeholder= "Health..." onChange={(event) =>{setNewHealth(event.target.value)}}/> 
             <input placeholder= "Watered..." onChange={(event) =>{setNewWatered(event.target.value)}}/>
-            <button onClick={() => {updatePlant(plant.id, plant.health, plant.watered)}}> Update Health</button>
+            <button onClick={() => {updatePlant(plant.id, plant.health, plant.watered)}}> Update   </button>
             <button onClick={() => {deletePlant(plant.id)}}>Delete Plant</button>
           </div>
         )
