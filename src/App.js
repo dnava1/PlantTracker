@@ -1,34 +1,24 @@
-import { useState, useEffect} from "react";
 import './App.css';
-import {db} from "./firebaseConfiguration";
-import { collection, getDocs} from "firebase/firestore";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Tracker from "./Pages/Tracker"
+import SignIn from './Pages/SignIn';
+
+import { useState } from "react"
+import { signOut } from "firebase/auth"
+import { auth } from "./firebaseConfiguration";
+
+
 
 function App() {
-  const [plants, setPlants] = useState([]);
-  const plantsRef = collection(db, "plants");
+  const[isAuth, setIsAuth] = useState(false);
 
-  useEffect(() => {
-    const getPlants = async () => {
-      const data = await getDocs(plantsRef);
-      setPlants(data.docs.map((doc) => ({ ...doc.data(), id: doc.id})));
-    };
-    getPlants();
-  });
   return (
-    <div className="App">
-      {plants.map((plant) => {
-        return(
-          <div> 
-            {" "}
-            <h1>Name: {plant.name}</h1>
-            <h1>Healh: {plant.health}</h1>
-            <h1>Watered: {plant.watered}</h1>
-          </div>
-        )
-      })}
-      <h1>Name</h1>
-      
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<SignIn setIsAuth={setIsAuth}/>} />
+        <Route path="/tracker" element={<Tracker isAuth={isAuth}/>} />
+      </Routes>
+    </Router>
   );
 }
 
