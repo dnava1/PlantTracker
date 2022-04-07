@@ -4,7 +4,8 @@ import { db } from "../firebaseConfiguration"
 import { collection, getDocs, addDoc, updateDoc, doc,deleteDoc} from "firebase/firestore";
 import { useNavigate} from 'react-router-dom';
 import { signOut } from "firebase/auth"
-import { auth } from "../firebaseConfiguration";
+import { auth, firestore} from "../firebaseConfiguration";
+
 
 
 function Tracker({ }) {
@@ -14,7 +15,7 @@ function Tracker({ }) {
   const[isAuth, setIsAuth] = useState(false);
 
   const [plants, setPlants] = useState([]);
-  const plantsRef = collection(db, "plants");
+  const plantsRef = collection(db, "users/${auth.currentUser.uid}/plants");
 
   const signUserOut = () => {
     signOut(auth).then(() => {
@@ -28,17 +29,17 @@ function Tracker({ }) {
   //this does the CREATE part, allows user to add plant with name, health, and watered
  const createPlant = async () => {
     await addDoc(plantsRef, {name: newPlant, health: newHealth, watered: newWatered});
- 
+    
    };
    //updates health and watered
    const updatePlant = async (id) => {
-     const plantDoc = doc(db, "plants", id);
+     const plantDoc = doc(db, "users/${auth.currentUser.uid}/plants", id);
      const newFields = {health: newHealth, watered: newWatered}
      await updateDoc(plantDoc, newFields)
  
    }
    const deletePlant = async (id) => {
-     const plantDoc = doc(db, "plants", id);
+     const plantDoc = doc(db, "users/${auth.currentUser.uid}/plants", id);
      await deleteDoc(plantDoc);
  
    }
