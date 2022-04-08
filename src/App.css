@@ -29,11 +29,15 @@ input {
  
   text-align: center;
 
-  padding: 15px 25px;
+  padding: 10px 5px;
   margin: 8px 0;
   box-sizing: border-box;
+  opacity: .8;
+  border-style:ridge;
+  border-radius: 60px;
 }
 .SignInGoogle{
+  
   height:100%;
   display: flex;
   flex-direction: column;
@@ -51,24 +55,108 @@ button {
 .logOut {
   display: flex;
   text-align: center;
-  box-sizing: border-box;
-  top:50%;
-  align-content:flex-start;
-
-  
-  margin: 15px auto;
-
+ margin: 15px auto;
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-style: oblique;
   font-size:x-large;
-  background-color: white;
+  background-color: #f7894a;
   color:black;
   border-radius: 15px;
-  border-color: lime;
-  padding: 15px 25px;
   box-shadow: 0px 0px 2px 2px rgb(0,0,0);
-  padding:20px;
-  min-height:20px; 
-  min-width: 100px;
- 
+  padding:12px;
+  margin-right: 5%;
+  opacity: .9;
+}
+h1{
+  
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-text-stroke: 1px black;
+  font-size:xx-large
+  
+  
   
 }
+.delete {
+  background-color: #aa4222;
+  color: white;
+  padding: 14px 20px;
+  margin: 15px 10px;
+  border: none;
+  cursor: pointer;
+  width: 5%;
+  min-width: 105px;
+  opacity: 0.8;
+  
+}
+
+.update {
+  
+  background-color: rgb(11, 163, 223);
+  color: white;
+  padding: 14px 20px;
+  margin:  15px 10px;
+  border: none;
+  cursor: pointer;
+  width: 5%;
+  min-width: 105px;
+  opacity: 0.8;
+  
+}
+
+
+.create {
+  background-color: rgb(62, 182, 51);
+  color: white;
+  padding: 14px 20px;
+  margin:  15px 10px;
+  border: none;
+  cursor: pointer;
+  width: 5%;
+  min-width: 180px;
+  opacity: 0.8;
+  font-size:20px;
+  
+}
+
+.output{
+  background-color: rgb(62, 182, 51);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+ 
+  width: 10%;
+  opacity: 0.8;
+  
+
+}
+
+.title{
+  color: limegreen;
+  font-size: 75px;
+  
+}
+.styleWrapper{
+  margin: auto;
+  width: 50%;
+  
+  border: 5px solid limegreen;
+  align-items: center;
+  width: fit-content;
+  border-style:groove;
+  border-radius: 40px;
+}
+
+.space {
+  margin-top: 50px;
+}
+
+.space1 {
+  margin-top: 100px;
+}
+
+.maple{
+  font-size:200px;
+}
+

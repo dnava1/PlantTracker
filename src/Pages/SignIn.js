@@ -16,15 +16,25 @@ function SignIn({ setIsAuth }) {
         })
     };
   return (
+      <div className='App'>
     <div className="SignInGoogle">
+
+        <h1 className='maple'>
+        🌲
+
+        </h1>
        
 
-        
+        <h1>
+            Welcome to Plant Tracker 
+            
+        </h1>
         <GoogleButton
         onClick={signInWithGoogle}>
             Sign in with Google
         </GoogleButton>
         
+        </div>
         </div>
   );
 }
