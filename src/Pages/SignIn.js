@@ -5,10 +5,7 @@ import { useNavigate } from "react-router-dom";
 import GoogleButton from 'react-google-button';
 
 
-
 function SignIn({ setIsAuth }) {
-
-    
 
     let navigate = useNavigate();
     const signInWithGoogle = () =>{
@@ -16,21 +13,25 @@ function SignIn({ setIsAuth }) {
             localStorage.setItem("isAuth", true);
             setIsAuth(true);
             navigate("/tracker");
-            
-            
         })
     };
   return (
+      <div className='App'>
     <div className="SignInGoogle">
        
 
-        
+        <h1>
+            Welcome to Plant Tracker 
+            
+        </h1>
         <GoogleButton
         onClick={signInWithGoogle}>
             Sign in with Google
         </GoogleButton>
         
         </div>
+        </div>
   );
 }
+
 export default SignIn;
