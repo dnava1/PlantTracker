@@ -38,6 +38,7 @@ function Tracker({ }) {
     } else
     {
     // User is signed out
+    navigate("/");
     }
   });
 
