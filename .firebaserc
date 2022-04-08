@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "planttracker-8c410"
-  }
+    "default": "plant-tracker-37c7e",
+    "plant-tracker": "plant-tracker-37c7e"
+  },
+  "targets": {}
 }

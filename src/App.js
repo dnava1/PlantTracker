@@ -1,26 +1,22 @@
-
 import './App.css';
-
-
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Tracker from "./Pages/Tracker"
 import SignIn from './Pages/SignIn';
-import Home from './Pages/Home';
+
+import { useState } from "react"
+import { signOut } from "firebase/auth"
+import { auth } from "./firebaseConfiguration";
+
+
 
 function App() {
+  const[isAuth, setIsAuth] = useState(false);
 
   return (
     <Router>
-      <nav>
-        <Link to="/"> Tracker</Link>
-        <Link to="/signin"> Sign In</Link>
-        <Link to="/home"> Home</Link>
-      </nav>
       <Routes>
-        <Route path="/" element={<Tracker/>} />
-        <Route path="/signin" element={<SignIn/>} />
-        <Route path="/home" element={<Home/>} />
-      
+        <Route path="/" element={<SignIn setIsAuth={setIsAuth}/>} />
+        <Route path="/tracker" element={<Tracker isAuth={isAuth}/>} />
       </Routes>
     </Router>
   );
