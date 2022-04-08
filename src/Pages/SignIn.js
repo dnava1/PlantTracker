@@ -18,6 +18,11 @@ function SignIn({ setIsAuth }) {
   return (
       <div className='App'>
     <div className="SignInGoogle">
+
+        <h1 className='maple'>
+        🌲
+
+        </h1>
        
 
         <h1>

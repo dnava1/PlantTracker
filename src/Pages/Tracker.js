@@ -67,31 +67,41 @@ function Tracker({ }) {
 
   return (
     <div className="App">
-
         <button className="logOut" onClick={signUserOut}> Log Out</button> 
-        <h1 className='title'> Plant Tracker </h1>
+        <div className='space'></div>
+        
+        <h1 className='title'> Plant Tracker🌱</h1>
+        
         <input placeholder="Name..." onChange={(event) =>{setNewPlant(event.target.value)}}/> 
       <input placeholder="Health..." onChange={(event) =>{setNewHealth(event.target.value)}}/>
       <input placeholder="Watered..." onChange={(event) =>{setNewWatered(event.target.value)}}/>
       <input placeholder="Fertilized..." onChange={(event) =>{setNewFertilized(event.target.value)}}/>
 
       {"\n"}
+      <div>
 
-      <button className= "create" onClick={createPlant}> Create Plant</button>
+      <button className= "create" onClick={createPlant}> Create Plant 🌵</button>
+      </div>
+      <div className='space1'></div>
       {plants.map((plant) => {
         return(
           <div> 
             {" "} 
+            <div className='styleWrapper'>
             <h1>Name: {plant.name}</h1>
             <h1>Health: {plant.health}</h1>
             <h1>Watered: {plant.watered}</h1>
             <h1>Fertilized: {plant.fertilized}</h1>
+            </div>
             <input placeholder= "Health..." onChange={(event) =>{setNewHealth(event.target.value)}}/> 
             <input placeholder= "Watered..." onChange={(event) =>{setNewWatered(event.target.value)}}/>
             <input placeholder= "Fertilized..." onChange={(event) =>{setNewFertilized(event.target.value)}}/>{"\n"}
-            <button className ="update" onClick={() => {updatePlant(plant.id, plant.health, plant.watered, plant.fertilized)}}> Update   </button>
+            <div>
+            <button className ="update" onClick={() => {updatePlant(plant.id, plant.health, plant.watered, plant.fertilized)}}> Update 🔄 </button>
             {"\n"}
-            <button className ="delete" onClick={() => {deletePlant(plant.id)}}>Delete Plant</button>
+            <button className ="delete" onClick={() => {deletePlant(plant.id)}}>Delete ❌</button>
+            </div>
+            <div className='space'></div>
           </div>
         )
       })}
